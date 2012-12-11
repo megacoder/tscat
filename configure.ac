@@ -4,7 +4,7 @@
 AC_PREREQ(2.61)
 AC_INIT([tscat], [0.0.0], [Tommy Reynolds <Tommy.Reynolds@Megacoder.com>])
 AC_CONFIG_SRCDIR([src])
-AC_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADER([src/config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 #

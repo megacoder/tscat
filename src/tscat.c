@@ -1,3 +1,5 @@
+#include "config.h"
+
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -14,5 +16,7 @@ main(
 	char * *	argv
 )
 {
+	puts( BINDIR );
+	puts( DATADIR );
 	return( nonfatal ? 1 : 0 );
 }
