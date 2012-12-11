@@ -1,4 +1,3 @@
-#include <tscat.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -12,7 +11,7 @@ static	unsigned	nonfatal;
 int
 main(
 	int		argc,
-	char * *	argv,
+	char * *	argv
 )
 {
 	return( nonfatal ? 1 : 0 );

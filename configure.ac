@@ -21,27 +21,7 @@ AC_PROG_LIBTOOL
 # Checks for libraries.
 
 # Checks for header files.
-AC_CHECK_HEADERS([
-	argz.h
-	fcntl.h
-	float.h
-	inttypes.h
-	langinfo.h
-	libintl.h
-	limits.h
-	locale.h
-	malloc.h
-	netdb.h
-	stddef.h
-	stdint.h
-	stdio_ext.h
-	stdlib.h
-	string.h
-	strings.h
-	sys/param.h
-	unistd.h
-	wchar.h
-])
+AC_CHECK_HEADERS([])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
