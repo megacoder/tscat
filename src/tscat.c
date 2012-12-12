@@ -14,6 +14,7 @@ static	unsigned	nonfatal;
 static	char *		ofile;
 static	char *		me = "tscat";
 static	unsigned	n_sw;
+static	unsigned	unbuffered;
 
 static	char const *	fmt = "%Y-%m-%d %H:%M:%S";
 
@@ -80,19 +81,22 @@ do_getopt(
 {
 	int		c;
 
-	while( (c = getopt( argc, argv, "f:no:" )) != EOF )	{
+	while( (c = getopt( argc, argv, "no:t:u" )) != EOF )	{
 		switch( c )	{
 		default:
 			fprintf( stderr, "Huh?\n" );
-			break;
-		case 'f':
-			fmt = optarg;
 			break;
 		case 'n':
 			n_sw = 1;
 			break;
 		case 'o':
 			ofile = optarg;
+			break;
+		case 't':
+			fmt = optarg;
+			break;
+		case 'u':
+			unbuffered = 1;
 			break;
 		}
 	}
@@ -119,6 +123,19 @@ main(
 				);
 				++nonfatal;
 				break;
+			}
+		}
+		if( unbuffered )	{
+			setlinebuf( stdout );
+		} else	{
+			size_t const	n = BUFSIZ * 4;
+
+			if( setvbuf( stdout, NULL, _IOFBF, n ) < 0 )	{
+				say(
+					errno,
+					"could not use large output buffer"
+					"; carrying on"
+				);
 			}
 		}
 		if( optind < argc )	{

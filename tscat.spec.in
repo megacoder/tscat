@@ -4,8 +4,8 @@
 
 Prefix: %{prefix}
 
-Summary: Convert errno or h_errno codes to names and vice versa
-Name: errno
+Summary: Copy input to output, prefixing each line with a timestamp.
+Name: tscat
 Version: %{ver}
 Release: %{rel}
 Source: http://ftp.megacoder.com/errno/%{name}-%{ver}.tar.gz
@@ -13,14 +13,9 @@ License: GPLv2
 URL: http://www.megacoder.com/
 Group: Applications/System
 Buildroot: %{_tmppath}/%{name}-root
-BuildRequires: popt-devel
 
 %description
-You can use %{name}(1) to translate a numeric system error code into the
-spelling used by the programmer and to also see a copy of the defined
-textual meaning of that code.  By default, the errno value from a
-system call or library function is decoded, but if the --network
-switch is used, the h_errno values are decoded instead.
+Ever create a log file by redirecting stdout into a file?  Ever wonder just shen each line was received?  With tscat(1) you can know this.
 
 %prep
 
@@ -40,7 +35,6 @@ switch is used, the h_errno values are decoded instead.
 %defattr(-,root,root)
 %doc AUTHORS COPYING README INSTALL NEWS LICENSE TODO
 %{_bindir}/%{name}
-%lang(en_US) %{_datadir}/locale/en_US/LC_MESSAGES/%{name}.mo
 
 %changelog
 * Tue May 16 2009 Tommy Reynolds <Tommy.Reynolds@MegaCoder.com>
